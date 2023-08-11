@@ -1,10 +1,16 @@
 <template>
- <div>
- <h3>歌手页面</h3>
- </div>
+    <div>
+        <h3>歌手页面</h3>
+    </div>
 </template>
 <script setup lang='ts'>
-</script>
-<style scoped>
+import { onBeforeMount } from 'vue';
+import { getSingerList } from '../service/singer';
 
-</style>
+
+onBeforeMount(async () => {
+    const result = await getSingerList();
+    console.log(result);
+})
+</script>
+<style scoped></style>

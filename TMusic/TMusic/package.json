@@ -25,6 +25,7 @@
     "@vitejs/plugin-vue": "^4.0.0",
     "compression": "^1.7.4",
     "cookie-parser": "^1.4.5",
+    "pinyin": "^2.9.1",
     "sass": "^1.65.1",
     "sass-loader": "^13.3.2",
     "typescript": "^4.9.3",
