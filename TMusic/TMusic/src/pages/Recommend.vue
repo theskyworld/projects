@@ -1,7 +1,7 @@
 <template>
     <!-- 推荐页面 -->
     <!-- 通过v-loading自定义指令来控制加载数据时Loading组件的渲染展示 -->
-    <div class="recommend" v-loading="loading">
+    <div class="recommend" v-loading:[loadingText]="loading">
         <WrappedScroll class="recommend-content">
             <div>
                 <div class="slider-wrapper">
@@ -53,6 +53,7 @@ const selectedAlbum = ref();
 const loading = computed(() => {
     return !sliders.value.length && !albums.value.length
 });
+const loadingText  = ref("正在载入...")
 // 挂载前获取轮播图数据
 onBeforeMount(async () => {
     // 进行数据的请求和获取

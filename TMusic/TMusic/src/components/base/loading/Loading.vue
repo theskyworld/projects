@@ -1,5 +1,4 @@
 <template>
-    <!-- loading组件 -->
     <div class="loading">
         <div class="loading-content">
             <img width="24" height="24" src="./loading.gif">
@@ -7,15 +6,24 @@
         </div>
     </div>
 </template>
-<script setup lang='ts'>
-import { ref } from 'vue';
-const title = ref("正在加载...");
 
-
-const setTitle = (newTitle: string) => {
-    title.value = newTitle;
+<script>
+// 使用optionsAPI的写法,解决在createLoadingDirective.ts文件中访问instance.setTitle(title)报错的问题
+export default {
+    name: 'loading',
+    data() {
+        return {
+            title: '正在载入...'
+        }
+    },
+    methods: {
+        setTitle(title) {
+            this.title = title
+        }
+    }
 }
 </script>
+
 <style lang="scss" scoped>
 .loading {
     position: absolute;
