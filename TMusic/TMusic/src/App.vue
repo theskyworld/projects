@@ -5,8 +5,10 @@ import Tab from "./components/tab/tab.vue"
 
 <template>
     <div>
+        <!-- 静态组件 -->
         <Header></Header>
         <Tab></Tab>
+        <!-- 路由组件 -->
         <RouterView></RouterView>
     </div>
 </template>
