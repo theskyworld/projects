@@ -1,4 +1,6 @@
 <template>
+    <!-- 推荐页面 -->
+    <!-- 通过v-loading自定义指令来控制加载数据时Loading组件的渲染展示 -->
     <div class="recommend" v-loading="loading">
         <WrappedScroll class="recommend-content">
             <div>
