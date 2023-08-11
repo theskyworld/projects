@@ -1,3 +1,4 @@
+// 使用BetterScoll实现滚动的逻辑
 import BScroll from "@better-scroll/core";
 import ObserveDOM from "@better-scroll/observe-dom";
 import { onMounted, onUnmounted, onActivated, onDeactivated, ref } from "vue";

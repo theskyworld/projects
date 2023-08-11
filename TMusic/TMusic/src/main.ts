@@ -4,7 +4,14 @@ import App from "./App.vue";
 import "./assets/scss/index.scss";
 import router from "./router";
 import { createPinia } from "pinia";
+// 实现图片懒加载
+import lazyPlugin from "vue3-lazy";
 
-const app = createApp(App);
-
-createApp(App).use(router).use(createPinia()).mount("#app");
+createApp(App)
+  .use(router)
+  .use(createPinia())
+  .use(lazyPlugin, {
+    // 加载图片时展示的默认图片
+    loading: require("./assets/imgs/logo.png"),
+  })
+  .mount("#app");

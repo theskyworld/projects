@@ -1,4 +1,5 @@
 <template>
+    <!-- 轮播图 -->
     <div class="slider" ref="rootRef">
         <div class="slider-group">
             <div class="slider-page" v-for="item in sliders" :key="(item as any).id">

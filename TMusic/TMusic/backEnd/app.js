@@ -1,4 +1,5 @@
 // 在这里对全局的,公共的中间件函数进行添加
+// 因为在Node环境下运行，使用commonJS
 
 const express = require("express");
 const compression = require("compression");

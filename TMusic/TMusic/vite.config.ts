@@ -1,12 +1,12 @@
-import { createServer, defineConfig } from "vite";
+import { defineConfig } from "vite";
 import vue from "@vitejs/plugin-vue";
-import express from "express";
-import registerRouter from "./backEnd/router.js";
+// 使用该插件将require语法自动转换为import语法
+import requireTransform from "vite-plugin-require-transform";
 
 // https://vitejs.dev/config/
 export default defineConfig(() => {
   return {
-    plugins: [vue()],
+    plugins: [vue(), requireTransform({})],
     css: {
       preprocessorOptions: {
         scss: {

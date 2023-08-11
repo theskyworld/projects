@@ -1,4 +1,5 @@
 <template>
+    <!-- 滚动 -->
     <div ref="rootRef">
         <slot></slot>
     </div>
