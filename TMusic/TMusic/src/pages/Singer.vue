@@ -12,16 +12,25 @@
 import { onBeforeMount, ref } from 'vue';
 import { getSingerList } from '../service/singer';
 import IndexList from "../components/indexList/IndexList.vue"
+import { useRouter } from 'vue-router';
+import storage from 'good-storage'
+import { SINGER_KEY } from '../assets/ts/constant';
 
+const router = useRouter();
 const singers = ref([]);
 const selectedSinger = ref();
-const selectSinger = (singer) => {
-    // selectedSinger.value = singer;
-    // cacheSinger(singer);
+const selectSinger = (singer: any) => {
+    selectedSinger.value = singer;
+    cacheSinger(singer);
+    // 跳转到指定的歌手详情页
+    router.push({
+        path: `singer/${singer.mid}`
+    })
 
 }
-const cacheSinger = (singer) => {
-    
+
+const cacheSinger = (singer: any) => {
+    storage.session.set(SINGER_KEY, singer)
 }
 
 onBeforeMount(async () => {

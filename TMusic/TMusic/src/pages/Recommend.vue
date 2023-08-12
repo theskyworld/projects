@@ -43,8 +43,9 @@ import Slide from "../components/base/slide/Slide.vue";
 import WrappedScroll from "../components/base/wrappedScroll";
 import storage from 'good-storage'
 import { useRouter } from "vue-router";
+import { ALBUM_KEY } from "../assets/ts/constant";
 
-const ALBUM_KEY = '__album__'
+
 
 
 const sliders = ref([]);
@@ -53,7 +54,7 @@ const selectedAlbum = ref();
 const loading = computed(() => {
     return !sliders.value.length && !albums.value.length
 });
-const loadingText  = ref("正在载入...")
+const loadingText = ref("正在载入...")
 // 挂载前获取轮播图数据
 onBeforeMount(async () => {
     // 进行数据的请求和获取

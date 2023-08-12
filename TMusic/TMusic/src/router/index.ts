@@ -4,6 +4,7 @@ const Recommend = () => import("../pages/Recommend.vue");
 const Singer = () => import("../pages/Singer.vue");
 const TopList = () => import("../pages/TopList.vue");
 const Search = () => import("../pages/Search.vue");
+const SingerDetail = () => import("../pages/SingerDetail.vue");
 
 const routes = [
   // 首页
@@ -22,6 +23,13 @@ const routes = [
   {
     path: "/singer",
     component: Singer,
+    children: [
+      // 歌手详情页面
+      {
+        path: ":id",
+        component: SingerDetail,
+      },
+    ],
   },
   // 排行榜页面
   {
