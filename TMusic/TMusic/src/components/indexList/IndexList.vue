@@ -1,31 +1,57 @@
 <template>
   <!-- 歌手列表组件 -->
   <!-- 因为需要支持滚动,所以使用WrapperScroll在外部进行包装 -->
-  <WrapperScroll class="index-list" :probe-type="3" @scroll="onScroll" ref="scrollRef">
-    <ul ref="groupRef">
-      <li v-for="group in data" :key="(group as any).title" class="group">
-        <h2 class="title">{{ (group as any).title }}</h2>
-        <ul>
-          <li v-for="item in (group as any).list" :key="item.id" class="item" @click="onItemClick(item)">
-            <img class="avatar" v-lazy="item.pic">
-            <span class="name">{{ item.name }}</span>
-          </li>
-        </ul>
-      </li>
-    </ul>
-    <div class="fixed" v-show="fixedTitle" :style="fixedStyle">
-      <div class="fixed-title">{{ fixedTitle }}</div>
-    </div>
-    <div class="shortcut" @touchstart.stop.prevent="onShortcutTouchStart" @touchmove.stop.prevent="onShortcutTouchMove"
-      @touchend.stop.prevent>
-      <ul>
-        <li v-for="(item, index) in shortcutList" :key="item" :data-index="index" class="item"
-          :class="{ 'current': currentIndex === index }">
-          {{ item }}
+  <WrapperScroll
+      class="index-list"
+      :probe-type="3"
+      @scroll="onScroll"
+      ref="scrollRef"
+    >
+      <ul ref="groupRef">
+        <li
+          v-for="group in data"
+          :key="(group as any).title"
+          class="group"
+        >
+          <h2 class="title">{{ (group as any).title }}</h2>
+          <ul>
+            <li
+              v-for="item in (group as any).list"
+              :key="item.id"
+              class="item"
+              @click="onItemClick(item)"
+            >
+              <img class="avatar" v-lazy="item.pic">
+              <span class="name">{{ item.name }}</span>
+            </li>
+          </ul>
         </li>
       </ul>
-    </div>
-  </WrapperScroll>
+      <div
+        class="fixed"
+        v-show="fixedTitle"
+        :style="fixedStyle"
+      >
+        <div class="fixed-title">{{ fixedTitle }}</div>
+      </div>
+      <div
+        class="shortcut"
+        @touchstart.stop.prevent="onShortcutTouchStart"
+        @touchmove.stop.prevent="onShortcutTouchMove"
+        @touchend.stop.prevent
+      >
+        <ul>
+          <li
+            v-for="(item, index) in shortcutList"
+            :key="item"
+            :data-index="index"
+            class="item"
+            :class="{ 'current': currentIndex === index }">
+            {{ item }}
+          </li>
+        </ul>
+      </div>
+    </WrapperScroll>
 </template>
 <script setup lang='ts'>
 import WrapperScroll from "../base/wrappedScroll/index";
@@ -127,5 +153,4 @@ const onItemClick = (item: any) => {
       }
     }
   }
-}
-</style>
+}</style>

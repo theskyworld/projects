@@ -16,15 +16,20 @@ import { useRouter } from 'vue-router';
 import storage from 'good-storage'
 import { SINGER_KEY } from '../assets/ts/constant';
 
+
+
+const isLeave = ref(false);
 const router = useRouter();
 const singers = ref([]);
 const selectedSinger = ref();
+
 const selectSinger = (singer: any) => {
     selectedSinger.value = singer;
     cacheSinger(singer);
+    isLeave.value = true;
     // 跳转到指定的歌手详情页
     router.push({
-        path: `singer/${singer.mid}`
+        path: `/singer/${singer.mid}`
     })
 
 }
